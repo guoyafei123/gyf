@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		td{
+			padding: 20px 100px;
+		}
+	</style>
+</head>
+<body>
+<table border="1px"></table>
+	<script type="text/javascript">
+		$.ajax({
+			url:'http://localhost:3000',
+			type:'get',
+			data:{},
+			success:function(e){
+				var str = '';
+				for(var i=0;i<e.length;i++){
+					console.log(e[i])
+					str += "<tr><td>" +e[i].id+ "</td><td>" +e[i].username+ "</td><td>" +e[i].password+ "</td></tr>";
+					console.log(str)
+					// $("table").append(str)
+				}
+
+				$("table").html(str)
+			}
+		})
+	</script>
+</body>
+</html>
